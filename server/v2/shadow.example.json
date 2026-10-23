@@ -1,0 +1,14 @@
+{
+  "mode": "disabled",
+  "model": "deepseek-flash",
+  "key_file": "D:/Stock-Google/SBKEY/DeepSeek API.txt",
+  "metadata_file": null,
+  "budget": null,
+  "risk_policy": null,
+  "plan_policy": {
+    "anchor_tolerance_bps": 25,
+    "price_change_bps": 10,
+    "capacity": 2000,
+    "max_attempts": 5
+  }
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_dark"
+    android:layout_marginBottom="12dp"
+    android:padding="16dp">
+
+    <!-- 1. 标的名称与浮动盈亏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- 左侧标的与状态 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_pos_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="宁德时代"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_lock_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="保本锁已激活"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_cyan"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_pos_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300750.SZ · 持仓 600股 · 成本 ¥238.50"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <!-- 右侧浮盈金额与百分比 Pill -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_pos_profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+¥10,980.00"
+                android:textColor="@color/stock_up_red"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pos_profit_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:gravity="center"
+                android:text="+7.67% ▲"
+                android:textColor="@color/stock_up_red"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_badge_red"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_subtle"
+        android:layout_marginVertical="10dp" />
+
+    <!-- 2. 风控止损线与操作按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_pos_stop_line"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="动态保本止损线: ¥242.08"
+            android:textColor="@color/stock_gold"
+            android:textSize="11.5sp" />
+
+        <Button
+            android:id="@+id/btn_pos_buy_more"
+            android:layout_width="68dp"
+            android:layout_height="32dp"
+            android:text="加仓"
+            android:textColor="@color/stock_up_red"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_red" />
+
+        <Button
+            android:id="@+id/btn_pos_sell"
+            android:layout_width="68dp"
+            android:layout_height="32dp"
+            android:text="平仓"
+            android:textColor="@color/stock_down_green"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_green"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+</LinearLayout>

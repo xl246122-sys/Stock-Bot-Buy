@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_dark_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp">
+
+        <!-- 1. 持仓总市值 Hero Card (Google 扁平色彩拼接风格) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp">
+
+            <!-- 顶部标题与录入按键 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="持仓总市值 (CNY)"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+                <!-- + 录入持仓 胶囊 -->
+                <TextView
+                    android:id="@+id/btn_chicang_add_manual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="+ 录入持仓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- 总市值大数字 -->
+            <TextView
+                android:id="@+id/tv_chicang_total_market"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥151,519.00"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp" />
+
+            <!-- 收益胶囊行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="3dp">
+
+                <TextView
+                    android:id="@+id/tv_chicang_today_profit_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="▲ +¥7,553.00 (+5.25%)"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_mint"
+                    android:paddingHorizontal="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="超短 24-48h"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="9.5sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+
+            <!-- 3 核心指标色彩拼接磁贴 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <!-- 成本 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总持仓成本"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="9sp" />
+                    <TextView
+                        android:id="@+id/tv_chicang_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥143,966.0"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+
+                <!-- 动态保本 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_mint"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginStart="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="动态保本锁定"
+                        android:textColor="@color/stock_down_green"
+                        android:textSize="9sp" />
+                    <TextView
+                        android:id="@+id/tv_chicang_breakeven_stats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● 2 / 5 标的锁定"
+                        android:textColor="@color/stock_down_green"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+
+                <!-- 夏普估算 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginStart="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="夏普估算"
+                        android:textColor="@color/stock_gold"
+                        android:textSize="9sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2.45 (-0.19%)"
+                        android:textColor="@color/stock_gold"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 自动保本执行横条 (极简扁平条) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_flat_chip_slate"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="6dp">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:src="@drawable/ic_shield_check"
+                    app:tint="@color/stock_down_green"
+                    android:contentDescription="自动保本" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="自动保本执行"
+                    android:textColor="@color/text_primary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="ON 撮合"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="8.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_mint"
+                    android:paddingHorizontal="4dp" />
+
+                <TextView
+                    android:id="@+id/btn_test_close_pos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="测平仓"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="8.5sp"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_chicang_auto_execute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:checked="true"
+                    android:layout_marginStart="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2. 分段切换器 (扁平 28dp 高度) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_card_dark"
+            android:padding="2dp"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tab_sub_holdings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="🛡️ 持仓监控 (5)"
+                android:textColor="#FFFFFF"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_primary" />
+
+            <TextView
+                android:id="@+id/tab_sub_close_logs"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="🕒 平仓日志 (3) ●"
+                android:textColor="@color/text_secondary"
+                android:textSize="10.5sp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginStart="2dp" />
+        </LinearLayout>
+
+        <!-- 3. 持仓列表 RecyclerView (承载持仓标的卡片) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chicang_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:clipToPadding="false"
+            android:paddingTop="5dp"
+            android:paddingBottom="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

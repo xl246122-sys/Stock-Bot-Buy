@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_dark_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp">
+
+        <!-- 1. 巡检与搜索子栏 (对齐美股监控 APP 图3/4 布局) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_flat_chip_mint"
+                android:paddingHorizontal="8dp">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/dot_online_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ❚❚ 巡检 2s"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_card_dark"
+                android:paddingHorizontal="8dp"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/text_tertiary"
+                    android:contentDescription="搜索" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜索 / 添加股票代码"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_slider"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/stock_cyan"
+                android:layout_marginStart="4dp"
+                android:contentDescription="筛选参数" />
+        </LinearLayout>
+
+        <!-- 2. 策略 Hero Card (对齐美股监控 APP 布林通道头部) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginTop="6dp">
+
+            <!-- 策略图标微徽标 -->
+            <FrameLayout
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_badge_cyan">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tab_weibo"
+                    app:tint="@color/stock_cyan"
+                    android:layout_gravity="center"
+                    android:contentDescription="区间微波" />
+            </FrameLayout>
+
+            <!-- 策略标题与模型微胶囊 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="区间微波"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="通道获利"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:gravity="center"
+                    android:text="Bollinger\nGrid"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="8.5sp"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="-2dp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+
+            <!-- 右侧统计胶囊组 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="已触底 1"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_cyan"
+                    android:paddingHorizontal="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="接近 1"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_gold"
+                    android:paddingHorizontal="6dp"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚙️ 参数"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="6dp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 3. 第 1 分区：已达成通道触底条件 (对齐美股卡片排版) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_online_green" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 已达成通道触底条件 (1)"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%B &lt; 0.08 · 极度靠近布林下轨"
+                android:textColor="@color/text_tertiary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- 达成标的卡片: 宁德时代 (带布林轨线标尺) -->
+        <LinearLayout
+            android:id="@+id/card_weibo_achieved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginBottom="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="宁德时代"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300750.SZ"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥256.80"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+2.92%"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- 轨道标尺胶囊行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="下轨 ¥248.50"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="中轨 ¥255.00"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="9.5sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="上轨 ¥262.50"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="9.5sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginStart="5dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="%B: -0.03"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="5dp" />
+            </LinearLayout>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3.5dp"
+                android:progress="12"
+                android:progressTint="@color/stock_cyan"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="目标收益: +1.5%~2.5% · RSI: 24.0"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚡ 立即建仓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 4. 第 2 分区：接近达成条件 (1) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕒"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 接近达成条件 (1)"
+                android:textColor="@color/stock_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginStart="3dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%B 0.08~0.28 · 逼近下轨"
+                android:textColor="@color/text_tertiary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- 接近标的卡片: 半导体ETF -->
+        <LinearLayout
+            android:id="@+id/card_weibo_approaching"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginBottom="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="半导体ETF"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="512480.SH"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥0.985"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+2.93%"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="触底达成度 87%"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="距下轨仅差 ¥0.02 · %B: 0.13"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3.5dp"
+                android:progress="87"
+                android:progressTint="@color/stock_cyan"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="下轨: ¥0.965 · 中轨: ¥0.990"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="+ 重点跟踪"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_gold"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 5. 第 3 分区：全市场箱体通道位置 %B 监控池 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="全市场箱体通道位置 %B 监控池 · 按 %B 升序"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="共 12 只"
+                android:textColor="@color/stock_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 监控池列表 RecyclerView (承载美股卡片样式的 item_pool_stock) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_weibo_pool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_dark"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="8dp"
+    android:layout_marginBottom="6dp">
+
+    <!-- 第一行: 名称与已实现盈亏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_log_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赛力斯"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_log_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="601127.SH"
+            android:textColor="@color/text_secondary"
+            android:textSize="10.5sp"
+            android:layout_marginStart="5dp" />
+
+        <TextView
+            android:id="@+id/tv_log_strategy"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:text="开盘突破"
+            android:textColor="@color/stock_gold"
+            android:textSize="9.5sp"
+            android:background="@drawable/bg_badge_gold"
+            android:paddingHorizontal="5dp"
+            android:layout_marginStart="5dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_log_profit"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:text="+¥6,800.0 (+5.16%)"
+            android:textColor="@color/stock_up_red"
+            android:textSize="10.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_red"
+            android:paddingHorizontal="6dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_subtle"
+        android:layout_marginVertical="6dp" />
+
+    <!-- 第二行: 平仓原因与时间 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_log_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:text="● 触及TP1止盈位 自动平仓"
+            android:textColor="@color/stock_down_green"
+            android:textSize="9.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_green"
+            android:paddingHorizontal="5dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_log_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今日 14:48:22 · 撮合成交"
+            android:textColor="@color/text_tertiary"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</LinearLayout>

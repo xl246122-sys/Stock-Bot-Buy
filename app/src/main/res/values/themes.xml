@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AstockG" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/md_theme_dark_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="fontFamily">@font/app_font</item>
+
+        <!-- MD3 Switch 开关统一暗色主题定制 -->
+        <item name="materialSwitchStyle">@style/Widget.AstockG.MaterialSwitch</item>
+    </style>
+
+    <!-- Google 风格精致 MD3 开关样式 -->
+    <style name="Widget.AstockG.MaterialSwitch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">@color/switch_thumb_selector</item>
+        <item name="trackTint">@color/switch_track_selector</item>
+        <item name="trackDecorationTint">@android:color/transparent</item>
+    </style>
+
+    <!-- Google MD3 紧凑型 Active Indicator (宽 40dp 高 22dp) -->
+    <style name="Widget.AstockG.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/nav_active_indicator</item>
+        <item name="android:width">40dp</item>
+        <item name="android:height">22dp</item>
+    </style>
+
+    <!-- 紧凑型导航栏文字样式 -->
+    <style name="Widget.AstockG.BottomNav.Text" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">9.5sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

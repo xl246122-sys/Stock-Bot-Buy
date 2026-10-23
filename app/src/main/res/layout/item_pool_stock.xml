@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_dark"
+    android:layout_marginBottom="6dp"
+    android:paddingHorizontal="11dp"
+    android:paddingVertical="9dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 1. 标的名称、板块胶囊与现价涨跌 (对齐美股监控 APP 图3 视觉标准) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_pool_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="立讯精密"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_pool_board"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:gravity="center"
+            android:text="深交所主板"
+            android:textColor="@color/text_tertiary"
+            android:textSize="9.5sp"
+            android:background="@drawable/bg_flat_chip_slate"
+            android:paddingHorizontal="5dp"
+            android:layout_marginStart="6dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_pool_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥36.20"
+            android:textColor="@color/text_primary"
+            android:textSize="15.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_pool_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-5.11%"
+            android:textColor="@color/stock_down_green"
+            android:textSize="13.5sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- 2. 次要说明与标准代码行 -->
+    <TextView
+        android:id="@+id/tv_pool_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="002475.SZ · 消费电子制造龙头"
+        android:textColor="@color/text_tertiary"
+        android:textSize="11sp"
+        android:layout_marginTop="2dp" />
+
+    <!-- 3. 量化指标胶囊与快捷看盘操作行 (对齐美股图3: RVOL/VWAP + K线/自选) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/tv_pool_tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="RSI: 18.5"
+            android:textColor="@color/stock_purple"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_flat_chip_slate"
+            android:paddingHorizontal="6dp" />
+
+        <TextView
+            android:id="@+id/tv_pool_tag2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="达成: 100%"
+            android:textColor="@color/stock_gold"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_flat_chip_amber"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="5dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_pool_kline"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:text="👁️ K线"
+            android:textColor="@color/stock_cyan"
+            android:textSize="10sp"
+            android:background="@drawable/bg_flat_chip_cyan"
+            android:paddingHorizontal="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/btn_pool_track"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:text="+ 跟踪"
+            android:textColor="@color/stock_gold"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_flat_chip_amber"
+            android:paddingHorizontal="8dp"
+            android:layout_marginStart="5dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_dark_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp">
+
+        <!-- 1. 巡检与搜索子栏 (对齐美股监控 APP 图3 布局) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_flat_chip_mint"
+                android:paddingHorizontal="8dp">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/dot_online_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ❚❚ 巡检 2s"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_card_dark"
+                android:paddingHorizontal="8dp"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/text_tertiary"
+                    android:contentDescription="搜索" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜索 / 添加股票代码"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_slider"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/stock_cyan"
+                android:layout_marginStart="4dp"
+                android:contentDescription="筛选参数" />
+        </LinearLayout>
+
+        <!-- 2. 策略 Hero Card (对齐美股监控 APP 图3 爆发突破头部) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginTop="6dp">
+
+            <!-- 策略图标微徽标 -->
+            <FrameLayout
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_badge_red">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tab_baofa"
+                    app:tint="@color/stock_up_red"
+                    android:layout_gravity="center"
+                    android:contentDescription="爆发突破" />
+            </FrameLayout>
+
+            <!-- 策略标题与模型微胶囊 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开盘放量"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="爆发突破"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:gravity="center"
+                    android:text="Toby\nCrabel"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="8.5sp"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="-2dp"
+                    android:background="@drawable/bg_flat_chip_crimson"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+
+            <!-- 右侧统计胶囊组 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="已达成 1"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_red"
+                    android:paddingHorizontal="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="接近 1"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_gold"
+                    android:paddingHorizontal="6dp"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚙️ 参数"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="6dp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 3. 大盘风向指示条 (完全对齐美股图3: 大盘风向 SPY/QQQ 样式) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大盘风向: "
+                android:textColor="@color/text_tertiary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="上证: +0.84%  创业板: +1.62%"
+                android:textColor="@color/stock_up_red"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="⚡ 顺风放量 (+4分)"
+                android:textColor="@color/stock_down_green"
+                android:textSize="9.5sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_flat_chip_mint"
+                android:paddingHorizontal="6dp" />
+        </LinearLayout>
+
+        <!-- 4. 第 1 分区：已达成爆发条件 (对齐美股图3) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_online_green" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 已达成爆发条件 (1)"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="满足 RVOL &gt; 2.0x 且价格高于 VWAP"
+                android:textColor="@color/text_tertiary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- 达成标的卡片: 中芯国际 (对齐美股卡片排版) -->
+        <LinearLayout
+            android:id="@+id/card_baofa_achieved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginBottom="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中芯国际"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="688981.SH"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥86.40"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+4.15%"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="RVOL: 2.2x (超预期爆发) · 突破前高"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VWAP: ¥84.20"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3.5dp"
+                android:progress="100"
+                android:progressTint="@color/stock_up_red"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="目标止盈: ¥89.50 (+3.6%) · 止损: ¥84.20"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚡ 立即建仓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 5. 第 2 分区：全市场相对放量 RVOL 监控池 (对齐美股图3 表头) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="全市场相对放量 RVOL 监控池 · 按量比降序"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="共 12 只"
+                android:textColor="@color/stock_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 监控池列表 RecyclerView (承载美股卡片样式的 item_pool_stock) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_baofa_pool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

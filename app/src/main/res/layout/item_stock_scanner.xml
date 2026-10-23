@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="16dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 1. 左侧标的信息 (固定宽度 120dp，保证全列表对齐) -->
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_stock_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="贵州茅台"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tv_board_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主板"
+                android:textColor="@color/text_tertiary"
+                android:textSize="9sp"
+                android:background="@drawable/bg_status_pill"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="1dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_stock_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="600519.SH"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 2. 中间量化策略与因子 (自适应宽度，严禁换行) -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingHorizontal="6dp">
+
+        <TextView
+            android:id="@+id/tv_strategy_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
+            android:text="★ 强买 88分"
+            android:textColor="@color/stock_gold"
+            android:textSize="10.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_gold"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tv_quant_factors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RSI 62 · %B 0.72 · 1.2x"
+            android:textColor="@color/text_tertiary"
+            android:textSize="10.5sp"
+            android:singleLine="true"
+            android:layout_marginTop="3dp" />
+    </LinearLayout>
+
+    <!-- 3. 右侧现价与涨跌幅 (固定宽度 96dp，Google Finance 风格居右对齐) -->
+    <LinearLayout
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_stock_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1,720.50"
+            android:textColor="@color/stock_up_red"
+            android:textSize="15.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_stock_change"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:minWidth="64dp"
+            android:gravity="center"
+            android:text="+1.68% ▲"
+            android:textColor="@color/stock_up_red"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_red"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- 4. 自选星标快捷按钮 -->
+    <ImageButton
+        android:id="@+id/btn_star"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_star"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/text_tertiary"
+        android:layout_marginStart="4dp"
+        android:contentDescription="加自选" />
+
+</LinearLayout>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md_theme_dark_background">
+
+    <!-- 1. 顶部大盘微型指数与市场脉搏 Bar (Google Finance Style) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上证指数"
+                android:textColor="@color/text_tertiary"
+                android:textSize="11sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 3,284.16"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" +0.84%"
+                android:textColor="@color/stock_up_red"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="沪深成交 "
+                android:textColor="@color/text_tertiary"
+                android:textSize="11sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.48万亿 · 极速放量"
+                android:textColor="@color/stock_gold"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 2. 板块分类横向滑动 Capsule Chips (高度 32dp 精致规范) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="4dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/chip_board_all"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="全部标的"
+                android:textColor="@color/stock_cyan"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_chip_selected" />
+
+            <TextView
+                android:id="@+id/chip_board_main"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="主板 A股"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_normal"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/chip_board_tech"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="双创先锋"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_normal"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/chip_board_etf"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="核心 ETF"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:background="@drawable/bg_chip_normal"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- 3. 三大量化模型微型筛选条 -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="14dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/chip_model_all"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:text="全部策略模型"
+                android:textColor="@color/stock_gold"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_badge_gold" />
+
+            <TextView
+                android:id="@+id/chip_model_connors"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:text="暴跌超卖(Connors)"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip_normal"
+                android:layout_marginStart="6dp" />
+
+            <TextView
+                android:id="@+id/chip_model_orb"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:text="开盘突破(Crabel)"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip_normal"
+                android:layout_marginStart="6dp" />
+
+            <TextView
+                android:id="@+id/chip_model_boll"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:text="布林网格震荡"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/bg_chip_normal"
+                android:layout_marginStart="6dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- 4. Google Finance 标准列表列头 (清爽规整，比例协调) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="#10141D">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="标的代码 · 名称"
+            android:textColor="@color/text_tertiary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="量化买点 / 因子指标"
+            android:textColor="@color/text_tertiary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="现价 / 涨跌幅"
+            android:textColor="@color/text_tertiary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_subtle" />
+
+    <!-- 5. 股票列表 RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_scanner_stocks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp" />
+
+</LinearLayout>

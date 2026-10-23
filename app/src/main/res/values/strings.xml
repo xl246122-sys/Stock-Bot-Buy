@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Stock-G</string>
+    <string name="app_subname">A-Share Ultra-Short Quant Terminal</string>
+
+    <!-- 底部 5 键式导航体系 (完全对齐美股 Stock-G) -->
+    <string name="tab_chaodi">抄底</string>
+    <string name="tab_baofa">爆发</string>
+    <string name="tab_weibo">微波</string>
+    <string name="tab_chicang">持仓</string>
+    <string name="tab_ai">智能中心</string>
+
+    <!-- 系统通知通道 -->
+    <string name="channel_foreground_name">Stock-G 实时盯盘常驻服务</string>
+    <string name="channel_foreground_desc">保障后台 2s 扫描与保本锁盈不被系统查杀</string>
+    <string name="channel_alert_name">Stock-G 量化买入预警强提醒</string>
+    <string name="channel_alert_desc">高胜率量化策略买点与止盈止损震动铃声预警</string>
+</resources>

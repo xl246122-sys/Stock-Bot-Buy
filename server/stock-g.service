@@ -1,0 +1,15 @@
+[Unit]
+Description=Stock-G Real-Time Quant Engine & FCM Push Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/stock-g
+ExecStart=/opt/stock-g/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000 --workers 1
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

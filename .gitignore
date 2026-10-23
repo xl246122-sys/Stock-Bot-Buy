@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production Build Artifacts
+build/
+dist/
+dist-ssr/
+*.local
+
+# Testing & Coverage
+coverage/
+*.lcov
+
+# Android & Gradle
+.gradle/
+.kotlin/
+local.properties
+*.apk
+*.aab
+app/build/
+release/*.apk
+
+# Python Server
+server/venv/
+server/__pycache__/
+*.py[cod]
+*$py.class
+server/credentials/
+*.sqlite3
+*.db
+
+# Sensitive Keys & Credentials
+*adminsdk*.json
+*firebase-adminsdk*.json
+*API KEY*.txt
+*secret*
+*.pem
+*.key
+*.keystore
+*.jks
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# OS & Editor Metadata
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local-only migration snapshots, market history and provider credentials
+.local/
+SBKEY/
+.android-studio/
+server/data/
+server/deploy.py
+server/setup_nginx.py
+google-services.json
+app/google-services.json
+app/src/main/assets/
+__pycache__/
+.venv/
+.aistudio/
+desktop.ini
+
+# Private release material and local connection records
+release/
+.stock-g-server-known-hosts
+.pytest_cache/
+*.db-wal
+*.db-shm
+*.sqlite3-wal
+*.sqlite3-shm

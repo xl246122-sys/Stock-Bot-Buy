@@ -1,0 +1,12 @@
+{
+  "scope": "binance_bstocks_spot",
+  "interval_minutes": 1,
+  "mode": "disabled",
+  "ai_model": "deepseek-flash",
+  "ai_key_file": "D:/Stock-Google/SBKEY/DeepSeek API.txt",
+  "daily_budget": null,
+  "monthly_budget": null,
+  "budget_currency": "CNY",
+  "max_holding_minutes": 60,
+  "session_convention": "UTC_calendar_day"
+}

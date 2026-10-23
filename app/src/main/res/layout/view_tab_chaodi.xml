@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_dark_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp">
+
+        <!-- 1. 巡检与搜索子栏 (对齐美股监控 APP 图4 布局) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/btn_chaodi_scan_status"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_flat_chip_mint"
+                android:paddingHorizontal="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/dot_online_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ❚❚ 巡检 2s"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_card_dark"
+                android:paddingHorizontal="8dp"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/text_tertiary"
+                    android:contentDescription="搜索" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜索 / 添加股票代码"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_chaodi_filter"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_slider"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/stock_cyan"
+                android:layout_marginStart="4dp"
+                android:contentDescription="筛选参数" />
+        </LinearLayout>
+
+        <!-- 2. 策略 Hero Card (对齐美股监控 APP 图4 头部质感) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginTop="6dp">
+
+            <!-- 策略图标微徽标 -->
+            <FrameLayout
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_badge_gold">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tab_chaodi"
+                    app:tint="@color/stock_gold"
+                    android:layout_gravity="center"
+                    android:contentDescription="抄底雷达" />
+            </FrameLayout>
+
+            <!-- 策略标题与模型微胶囊 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="暴跌超卖"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="抄底雷达"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:gravity="center"
+                    android:text="TPS\n均值回归"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="8.5sp"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="-2dp"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+
+            <!-- 右侧统计胶囊组 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="已达成 0"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="6dp" />
+
+                <TextView
+                    android:id="@+id/tv_chaodi_approaching_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="接近 3"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_gold"
+                    android:paddingHorizontal="6dp"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:id="@+id/btn_chaodi_params"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚙️ 参数"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="6dp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 3. 第 1 分区：已达成抄底条件 (对齐美股图4) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_online_green" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 已达成抄底条件 (0)"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="满足跌幅 &lt; -4.8% 且 RSI &lt; 22"
+                android:textColor="@color/text_tertiary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- 极简高频巡检状态容器 (对齐美股图4 空状态) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_shield_check"
+                app:tint="@color/stock_down_green"
+                android:contentDescription="正常运行" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 当前全市场暂无完全触发超卖的标的，系统持续高频监测中..."
+                android:textColor="@color/text_secondary"
+                android:textSize="10.5sp"
+                android:layout_marginStart="5dp" />
+        </LinearLayout>
+
+        <!-- 4. 第 2 分区：接近达成条件 (3) (对齐美股图4 卡片式架构) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕒"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 接近达成条件 (3)"
+                android:textColor="@color/stock_gold"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginStart="3dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="达成度 70%~95% · 重点跟踪"
+                android:textColor="@color/text_tertiary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- 接近卡片 1: 贵州茅台 (完全对齐美股图4 SMCI 卡片排版) -->
+        <LinearLayout
+            android:id="@+id/card_chaodi_approaching_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginBottom="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="贵州茅台"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="600519.SH"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥1,720.50"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+1.68%"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="达成度 92%"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="距抄底差 -0.8% · RSI 19.8"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+
+            <!-- 达成度进度条 (对齐美股橙红色调) -->
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3.5dp"
+                android:progress="92"
+                android:progressTint="@color/stock_gold"
+                android:layout_marginTop="4dp" />
+
+            <!-- 操作与辅助数据行 (对齐美股图4: RVOL + K线/跟踪) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="RVOL: 1.2x · 流通市值 ¥58.5亿"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="+ 重点跟踪"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_gold"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 接近卡片 2: 比亚迪 (对齐美股图4) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="11dp"
+            android:paddingVertical="9dp"
+            android:layout_marginBottom="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="比亚迪"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="002594.SZ"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="11sp"
+                    android:layout_marginStart="5dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥289.20"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-0.62%"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="达成度 87% (极高)"
+                    android:textColor="@color/stock_purple"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="距抄底差 -0.5% · RSI 18.5"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3.5dp"
+                android:progress="87"
+                android:progressTint="@color/stock_purple"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="RVOL: 1.2x · 流通市值 ¥32.8亿"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="+ 重点跟踪"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_badge_gold"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 5. 第 3 分区：全市场监控池 (对齐美股图3/4 列表表头) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="全市场监控池 · 按跌幅排序"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实时 12 只"
+                android:textColor="@color/stock_down_green"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 监控池列表 RecyclerView (承载美股卡片样式的 item_pool_stock) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chaodi_pool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

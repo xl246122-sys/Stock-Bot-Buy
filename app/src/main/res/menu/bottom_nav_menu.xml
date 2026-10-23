@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_chaodi"
+        android:icon="@drawable/ic_tab_chaodi"
+        android:title="@string/tab_chaodi" />
+
+    <item
+        android:id="@+id/nav_baofa"
+        android:icon="@drawable/ic_tab_baofa"
+        android:title="@string/tab_baofa" />
+
+    <item
+        android:id="@+id/nav_weibo"
+        android:icon="@drawable/ic_tab_weibo"
+        android:title="@string/tab_weibo" />
+
+    <item
+        android:id="@+id/nav_chicang"
+        android:icon="@drawable/ic_tab_chicang"
+        android:title="@string/tab_chicang" />
+
+    <item
+        android:id="@+id/nav_ai"
+        android:icon="@drawable/ic_tab_ai"
+        android:title="@string/tab_ai" />
+</menu>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_dark"
+    android:layout_marginBottom="6dp"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="8dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- 1. 标的名、策略Tag与最新现价浮盈 (扁平色彩对齐) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_pos_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宁德时代"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_pos_strategy_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="抄底"
+            android:textColor="@color/stock_gold"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_flat_chip_amber"
+            android:paddingHorizontal="5dp"
+            android:layout_marginStart="6dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_pos_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥256.80"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_pos_profit_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:text="+¥10,980 (+7.67%)"
+            android:textColor="@color/stock_up_red"
+            android:textSize="9.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_red"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+    <!-- 2. 多元素色彩拼接关键指标胶囊 (Google 扁平标签，替代冗长中文) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_pos_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="成本 ¥238.5"
+            android:textColor="@color/text_tertiary"
+            android:textSize="9sp"
+            android:background="@drawable/bg_flat_chip_slate"
+            android:paddingHorizontal="4dp" />
+
+        <TextView
+            android:id="@+id/tv_pos_shares"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="600股"
+            android:textColor="@color/text_tertiary"
+            android:textSize="9sp"
+            android:background="@drawable/bg_flat_chip_slate"
+            android:paddingHorizontal="4dp"
+            android:layout_marginStart="3dp" />
+
+        <TextView
+            android:id="@+id/tv_pos_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="止损 ¥232.5"
+            android:textColor="@color/stock_up_red"
+            android:textSize="9sp"
+            android:background="@drawable/bg_flat_chip_crimson"
+            android:paddingHorizontal="4dp"
+            android:layout_marginStart="3dp" />
+
+        <TextView
+            android:id="@+id/tv_pos_target"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="目标 ¥265.0"
+            android:textColor="@color/stock_down_green"
+            android:textSize="9sp"
+            android:background="@drawable/bg_flat_chip_mint"
+            android:paddingHorizontal="4dp"
+            android:layout_marginStart="3dp" />
+
+        <TextView
+            android:id="@+id/tv_pos_breakeven_lock_state"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:gravity="center"
+            android:text="● 锁利 ¥242.1"
+            android:textColor="@color/stock_down_green"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_flat_chip_mint"
+            android:paddingHorizontal="4dp"
+            android:layout_marginStart="3dp" />
+    </LinearLayout>
+
+    <!-- 3. 操作按钮组 (精简扁平化，仅保留平仓、保本与删除，点击卡片直接看盘) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/btn_pos_sim_close"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:text="⚡ 模拟平仓"
+            android:textColor="@color/stock_gold"
+            android:textSize="9.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_flat_chip_amber"
+            android:paddingHorizontal="8dp" />
+
+        <TextView
+            android:id="@+id/btn_pos_breakeven_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:text="🛡️ 保本开启"
+            android:textColor="@color/stock_down_green"
+            android:textSize="9.5sp"
+            android:background="@drawable/bg_flat_chip_mint"
+            android:paddingHorizontal="8dp"
+            android:layout_marginStart="6dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btn_pos_delete"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_trash"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/text_tertiary"
+            android:contentDescription="删除" />
+    </LinearLayout>
+
+</LinearLayout>

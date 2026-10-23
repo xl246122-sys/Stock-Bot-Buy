@@ -1,0 +1,8 @@
+{
+  "name": "Remix 9:31 New-Stock-Google",
+  "description": "专业级美股超短线量化交易监控扫描与实时预警APP，专为1-5天高胜率短线打造，支持暴跌抄底、开盘爆发与区间震荡模型及多频预警。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_dark_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="6dp">
+
+        <!-- 1. 顶部子导航胶囊 (Google 扁平色彩拼接) -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tab_sub_ai_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="AI 研报"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="10dp" />
+
+                <TextView
+                    android:id="@+id/tab_sub_ai_backtest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="回测统计"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/tab_sub_ai_cloud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="云端部署"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/tab_sub_ai_paper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="量化白皮书"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- 2. AI 推演引擎 Hero Card (Google 扁平多元素拼接) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp"
+            android:layout_marginTop="6dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_tab_ai"
+                app:tint="@color/stock_cyan"
+                android:contentDescription="AI Engine" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AI 推演 (DeepSeek + Gemini)"
+                android:textColor="@color/text_primary"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_marginStart="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:gravity="center"
+                android:text="● 42ms 极速"
+                android:textColor="@color/stock_down_green"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_flat_chip_mint"
+                android:paddingHorizontal="6dp" />
+        </LinearLayout>
+
+        <!-- 3. 今日 A股全市场 AI 综合评判 (Google 扁平色彩拼接) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="全市场 AI 综合研判"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_ai_score_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="88.5 分"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:paddingHorizontal="6dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_ai_comprehensive_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="上证 3,050 筑底共振，半导体与宽基 ETF 逆势吸筹。超卖修复概率 88.5%，建议顺风分批布局。"
+                android:textColor="@color/text_secondary"
+                android:textSize="10.5sp"
+                android:lineSpacingExtra="1dp"
+                android:layout_marginTop="4dp" />
+
+            <!-- 3 大特征色彩胶囊 (水平拼接) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="顺风共振 +4"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_mint" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="半导体领涨"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="胜率 88.5%"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 4. 四大模型胜率矩阵卡片 (2x2 扁平色彩拼接网格) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500-Bar 回测胜率矩阵"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <!-- 第 1 排: 暴跌反弹 vs 开盘爆发 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 暴跌反弹 (色彩拼接) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="↘ 暴跌反弹"
+                            android:textColor="@color/stock_purple"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="84.2%"
+                            android:textColor="@color/stock_purple"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TPS均值回归 · 盈亏比 2.8:1"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="9sp"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+
+                <!-- 开盘爆发 (色彩拼接) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_crimson"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="5dp"
+                    android:layout_marginStart="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🔥 开盘爆发"
+                            android:textColor="@color/stock_up_red"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="87.4%"
+                            android:textColor="@color/stock_up_red"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ORB突破 · 盈亏比 3.2:1"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="9sp"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 第 2 排: 区间微波 vs 临界观察 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <!-- 区间微波 (色彩拼接) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="~ 区间微波"
+                            android:textColor="@color/stock_cyan"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="89.1%"
+                            android:textColor="@color/stock_cyan"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="布林通道 · 盈亏比 2.6:1"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="9sp"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+
+                <!-- 临界观察 (色彩拼接) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="5dp"
+                    android:layout_marginStart="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="◎ 临界观察"
+                            android:textColor="@color/stock_gold"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="79.5%"
+                            android:textColor="@color/stock_gold"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="箱体突破 · 盈亏比 2.1:1"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="9sp"
+                        android:layout_marginTop="1dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 5. AI 实时量化研报速递 (标题栏) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AI 研报速递"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:gravity="center"
+                android:text="3 份研报"
+                android:textColor="@color/stock_cyan"
+                android:textSize="9sp"
+                android:background="@drawable/bg_flat_chip_cyan"
+                android:paddingHorizontal="5dp" />
+        </LinearLayout>
+
+        <!-- 研报卡片 1: 贵州茅台 (Google 扁平色彩拼接风格) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp"
+            android:layout_marginBottom="5dp">
+
+            <!-- 标的行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="贵州茅台"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="600519"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp"
+                    android:layout_marginStart="4dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="★ 建议抄底 92.4%"
+                    android:textColor="@color/stock_gold"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_amber"
+                    android:paddingHorizontal="5dp" />
+            </LinearLayout>
+
+            <!-- 扁平价格指标胶囊 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="现价 ¥1,720.50"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_crimson"
+                    android:paddingHorizontal="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="目标 ¥1,780.00 (+3.4%)"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_mint"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="止损 ¥1,680.00"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <!-- 极简研判条目 (Bullet Points) -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● RSI(6) 19.8 触布林下轨，卖盘耗尽探底回升"
+                android:textColor="@color/text_secondary"
+                android:textSize="9.5sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● 均值修复概率 91.2% · 净盈亏比 3.12 (已扣摩擦)"
+                android:textColor="@color/text_secondary"
+                android:textSize="9.5sp"
+                android:layout_marginTop="1dp" />
+
+            <!-- 操作行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/btn_ai_report1_kline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:id="@+id/btn_ai_report1_trade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚡ 立即建仓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 研报卡片 2: 中芯国际 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中芯国际"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="688981"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp"
+                    android:layout_marginStart="4dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="🔥 放量突破 88.6%"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_crimson"
+                    android:paddingHorizontal="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="现价 ¥86.40"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_crimson"
+                    android:paddingHorizontal="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="目标 ¥92.50 (+7.1%)"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_mint"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="止损 ¥83.50"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● RVOL 2.45x 突破 VWAP，主力净流入 14.8 亿"
+                android:textColor="@color/text_secondary"
+                android:textSize="9.5sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● 国产替代顺风共振 · 净盈亏比 2.85"
+                android:textColor="@color/text_secondary"
+                android:textSize="9.5sp"
+                android:layout_marginTop="1dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/btn_ai_report2_kline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:id="@+id/btn_ai_report2_trade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚡ 立即建仓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 研报卡片 3: 宁德时代 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="宁德时代"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300750"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="10.5sp"
+                    android:layout_marginStart="4dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:text="~ 箱体触底 89.1%"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="现价 ¥256.80"
+                    android:textColor="@color/stock_up_red"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_crimson"
+                    android:paddingHorizontal="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="目标 ¥265.00 (+3.2%)"
+                    android:textColor="@color/stock_down_green"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_mint"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:gravity="center"
+                    android:text="止损 ¥248.00"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="9sp"
+                    android:background="@drawable/bg_flat_chip_slate"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● 布林通道 %B 0.05 极端贴近下轨支撑"
+                android:textColor="@color/text_secondary"
+                android:textSize="9.5sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● 创业板指企稳共振 · 净盈亏比 2.68"
+                android:textColor="@color/text_secondary"
+                android:textSize="9.5sp"
+                android:layout_marginTop="1dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/btn_ai_report3_kline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="👁️ K线"
+                    android:textColor="@color/stock_cyan"
+                    android:textSize="10sp"
+                    android:background="@drawable/bg_flat_chip_cyan"
+                    android:paddingHorizontal="8dp" />
+
+                <TextView
+                    android:id="@+id/btn_ai_report3_trade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:gravity="center"
+                    android:text="⚡ 立即建仓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_primary"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginStart="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 6. 重新研判云端按钮 -->
+        <Button
+            android:id="@+id/btn_trigger_ai_analyze"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="⚡ 云端 AI 重新研判 (DeepSeek + Gemini)"
+            android:textColor="#FFFFFF"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_primary"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

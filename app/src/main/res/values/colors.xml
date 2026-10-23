@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Google Material Design 3 暗夜核心调色板 (Refined Obsidian Palette) -->
+    <color name="md_theme_dark_background">#090C10</color>
+    <color name="md_theme_dark_surface">#12161F</color>
+    <color name="md_theme_dark_surface_variant">#181D28</color>
+    <color name="md_theme_dark_surface_container">#1E2433</color>
+    <color name="md_theme_dark_surface_high">#252C3D</color>
+
+    <color name="md_theme_dark_primary">#38BDF8</color>
+    <color name="md_theme_dark_onPrimary">#082F49</color>
+    <color name="md_theme_dark_primary_container">#0C4A6E</color>
+    <color name="md_theme_dark_onPrimary_container">#BAE6FD</color>
+
+    <!-- 边框与微弱分割线 -->
+    <color name="border_subtle">#1F2633</color>
+    <color name="border_medium">#2A3446</color>
+    <color name="border_focus">#38BDF8</color>
+
+    <!-- 文字层级颜色 (Google Typography Hierarchy) -->
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_tertiary">#64748B</color>
+    <color name="text_disabled">#475569</color>
+
+    <!-- 中国 A 股红涨绿跌规范 (Google Finance A-Share Standards) -->
+    <!-- 上涨：鲜明朱红，带通透微光背景 -->
+    <color name="stock_up_red">#F87171</color>
+    <color name="stock_up_red_text">#EF4444</color>
+    <color name="stock_up_red_bg">#26EF4444</color>
+    <color name="stock_up_red_border">#59EF4444</color>
+
+    <!-- 下跌：翡翠薄荷绿 -->
+    <color name="stock_down_green">#34D399</color>
+    <color name="stock_down_green_text">#10B981</color>
+    <color name="stock_down_green_bg">#2610B981</color>
+    <color name="stock_down_green_border">#5910B981</color>
+
+    <!-- 智星 Polaris 金黄与 AI 专属色 -->
+    <color name="stock_gold">#FBBF24</color>
+    <color name="stock_gold_text">#F59E0B</color>
+    <color name="stock_gold_bg">#26F59E0B</color>
+    <color name="stock_gold_border">#59F59E0B</color>
+
+    <color name="stock_cyan">#38BDF8</color>
+    <color name="stock_cyan_bg">#260284C7</color>
+    <color name="stock_cyan_border">#590284C7</color>
+
+    <color name="stock_purple">#C084FC</color>
+    <color name="stock_purple_bg">#269333EA</color>
+    <color name="stock_purple_border">#599333EA</color>
+
+    <!-- Switch 开关专属配色 (解决默认紫色冲突) -->
+    <color name="switch_track_active">#1E3A5F</color>
+    <color name="switch_thumb_active">#38BDF8</color>
+    <color name="switch_track_inactive">#1E2433</color>
+    <color name="switch_thumb_inactive">#64748B</color>
+
+    <!-- 底部导航栏颜色 -->
+    <color name="nav_bg">#0E121A</color>
+    <color name="nav_active_indicator">#1E293B</color>
+    <color name="nav_item_active">#38BDF8</color>
+    <color name="nav_item_inactive">#64748B</color>
+
+    <!-- Google 扁平多元素色彩拼接 Tonal Surfaces & Chips -->
+    <color name="color_surface_chaodi">#111624</color>
+    <color name="color_surface_baofa">#191216</color>
+    <color name="color_surface_weibo">#0E1822</color>
+    <color name="color_surface_chicang">#101624</color>
+    <color name="color_chip_amber">#231B10</color>
+    <color name="color_chip_mint">#0F221A</color>
+    <color name="color_chip_crimson">#241215</color>
+    <color name="color_chip_cyan">#0D1E28</color>
+    <color name="color_chip_slate">#161C26</color>
+</resources>

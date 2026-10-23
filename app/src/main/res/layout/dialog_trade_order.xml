@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/md_theme_dark_surface"
+    android:padding="20dp">
+
+    <!-- 抽屉顶部滑块示意 -->
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:background="@color/border_subtle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dialog_stock_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="贵州茅台 (600519.SH)"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dialog_stock_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前最新市价: ¥1720.50 (+2.38%)"
+                android:textColor="@color/stock_up_red"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialog_trade_type_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="量化买入委托"
+            android:textColor="@color/stock_gold"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_gold" />
+    </LinearLayout>
+
+    <!-- 买卖方向切换 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_chip_normal"
+        android:padding="3dp"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/btn_direction_buy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="买 入 (做多建仓)"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_red" />
+
+        <TextView
+            android:id="@+id/btn_direction_sell"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="卖 出 (止盈平仓)"
+            android:gravity="center"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <!-- 委托价格输入 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="14dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="委托价格"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/et_order_price"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:inputType="numberDecimal"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="12dp"
+            android:text="1720.50" />
+    </LinearLayout>
+
+    <!-- 委托数量输入 (股数) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="委托数量"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/et_order_qty"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:inputType="number"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:background="@drawable/bg_card_dark"
+            android:paddingHorizontal="12dp"
+            android:text="100" />
+    </LinearLayout>
+
+    <!-- 快捷数量选项 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <View android:layout_width="70dp" android:layout_height="0dp" />
+
+        <TextView
+            android:id="@+id/btn_qty_100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100股 (1手)"
+            android:textColor="@color/stock_cyan"
+            android:textSize="11sp"
+            android:background="@drawable/bg_chip_normal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:id="@+id/btn_qty_500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500股"
+            android:textColor="@color/stock_cyan"
+            android:textSize="11sp"
+            android:background="@drawable/bg_chip_normal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/btn_qty_1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1000股"
+            android:textColor="@color/stock_cyan"
+            android:textSize="11sp"
+            android:background="@drawable/bg_chip_normal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- 交易通道与预估金额 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card_dark"
+        android:padding="12dp"
+        android:layout_marginTop="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="交易通道"
+                android:textColor="@color/text_tertiary"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="模拟沙箱 / 迅投 MiniQMT / 恒生 PTrade"
+                android:textColor="@color/stock_cyan"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="预估总金额 (含规费)"
+                android:textColor="@color/text_tertiary"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tv_order_estimate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥172,050.00"
+                android:textColor="@color/stock_gold"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 确认委托按钮 -->
+    <Button
+        android:id="@+id/btn_submit_order"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="⚡ 确认提交买入委托 (万2.5佣金)"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_button_primary"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
